@@ -11,6 +11,7 @@ def load_data(file_path):
 
 
 def fetch_animal_data(file_path):
+    """Obtain individual animal details"""
     animals_data = load_data(file_path)
 
     for content in animals_data:
