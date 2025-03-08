@@ -27,15 +27,19 @@ def fetch_animal_data(file_path):
             name = content.get("name", "Unknown Name")
             diet = characteristics.get("diet", "Unknown Diet")
             locations = content.get("locations", [])
+            location_str = ", ".join(locations)
             animal_type = characteristics.get("type", "N/A")
 
             # Append information to each string
-            concatenated_animal_data += "\n<li class='cards_item'>"
-            concatenated_animal_data += f"\nName:  {name}<br/>\n"
-            concatenated_animal_data += f"Diet:  {diet}<br/>\n"
-            concatenated_animal_data += f"locations:  {locations}<br/>\n"
-            concatenated_animal_data += f"Type:  {animal_type}<br/>\n"
-            concatenated_animal_data += "</li>\n"
+            concatenated_animal_data += "\n<li class='cards__item'>\n"
+            concatenated_animal_data += f'<div class="card__title">{name}</div>\n'
+            concatenated_animal_data += (f'<p class="card__text">\n'
+                                         f'<strong>Diet:</strong> {diet}<br/>\n'
+                                         f'<strong>Location:</strong> {location_str}<br/>\n'
+                                         f'<strong>Type:</strong> {animal_type}<br/>\n'
+                                         f'</p>\n'
+                                         f'</li>\n')
+            #concatenated_animal_data += "</li>\n"
 
         except KeyError:
             #print(f"A KeyError occurred with {content["name"]}\n")
@@ -65,7 +69,7 @@ def main():
     animal_characteristic = fetch_animal_data("files/animals_data.json")
     #print(animal_characteristic)
     reviewed_html_animal_template = replace_animal_repository("files/animals.template.html", "__REPLACE_ANIMALS_INFO", animal_characteristic )
-    print(reviewed_html_animal_template)
+
 
 if __name__ == "__main__":
     main()
