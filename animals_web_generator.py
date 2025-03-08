@@ -31,8 +31,10 @@ def fetch_animal_data(file_path):
 
 def main():
 
-    animal_characteristic = fetch_animal_data("animals_data.json")
+    animal_characteristic = fetch_animal_data("files/animals_data.json")
     print(animal_characteristic)
 
 if __name__ == "__main__":
     main()
+
+
