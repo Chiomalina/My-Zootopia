@@ -19,7 +19,7 @@ def fetch_animal_data(file_path):
 
         # Skip animals where "type is missing
         if "type" not in characteristics:
-            # Just continue to the next animal without adding anything to the ouput
+            # Just continue to the next animal without adding anything to the output
             continue
 
         # If "type" exists, let's safely retrieve the required keys
@@ -30,10 +30,12 @@ def fetch_animal_data(file_path):
             animal_type = characteristics.get("type", "N/A")
 
             # Append information to each string
-            concatenated_animal_data += f"\nName:  {name}\n"
-            concatenated_animal_data += f"Diet:  {diet}\n"
-            concatenated_animal_data += f"locations:  {locations}\n"
-            concatenated_animal_data += f"Type:  {animal_type}\n"
+            concatenated_animal_data += "\n<li class='cards_item'>"
+            concatenated_animal_data += f"\nName:  {name}<br/>\n"
+            concatenated_animal_data += f"Diet:  {diet}<br/>\n"
+            concatenated_animal_data += f"locations:  {locations}<br/>\n"
+            concatenated_animal_data += f"Type:  {animal_type}<br/>\n"
+            concatenated_animal_data += "</li>\n"
 
         except KeyError:
             #print(f"A KeyError occurred with {content["name"]}\n")
