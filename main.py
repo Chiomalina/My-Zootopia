@@ -34,7 +34,7 @@ def main():
         animal_characteristic
     )
 
-    # Optional: Let the user know the operation is complete
+    #Let the user know the operation is complete
     print(f"\nSuccessfully generated 'animals.html' for skin type: {chosen_skin_type}")
 
 
