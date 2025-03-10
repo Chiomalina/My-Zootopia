@@ -3,6 +3,13 @@ from animals_logic import fetch_animal_data
 from file_utils import replace_animal_repository
 
 def main():
+    """
+    Coordinates the program's workflow of reading animal data from a JSON file,
+    allowing the user to choose a skin type from available options, generating
+    HTML entries for animals of the selected skin type, and inserting those entries
+    into an HTML template. Finally, it writes the updated HTML file to disk and
+    informs the user that the process is complete
+    """
     # 1) Gather all distinct skin_type values
     possible_skin_types = get_available_skin_types("files/animals_data.json")
 
@@ -34,7 +41,7 @@ def main():
         animal_characteristic
     )
 
-    #Let the user know the operation is complete
+    # Let the user know the operation is complete
     print(f"\nSuccessfully generated 'animals.html' for skin type: {chosen_skin_type}")
 
 
